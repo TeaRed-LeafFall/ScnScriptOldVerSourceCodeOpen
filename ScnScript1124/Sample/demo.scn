@@ -1,0 +1,12 @@
+﻿*init
+[scn ver 4]
+[scn shell type="Menu"]
+[scn shell type="MenuItem"]
+*main
+[getstruct file="MainWindowMenu" saveas="menu"]
+;[out content]
+@Form name="MainWindow"
+	@ContentPlacer convert="MenuStrip" from='menu'
+@clr MainWindow
+[showForm='MainWindow']
+@swtich 'a'

@@ -1,0 +1,34 @@
+*init
+[scn ver 4]
+; 要求使用ScnScript 4及以上的版本
+[scn set doctype="Property"]
+; 设置文档类型为Property，这样会让本文件作为属性对象访问
+; 请用 [property file="EditColor" keyName="background" group="Editor"] 访问
+; 注意: 如果keyName中有重复声明，请使用group来区分
+[scn ask feature="dataInput" is="Supported"]
+; 询问dataInput是否支持，如果支持则可以批量生成数据
+[scn ask feature="group" is="Supported"]
+[scn shell type="ColorHEX"]; ColorHEX是一个类型，运行前建议声明需要存在
+*main
+@dataInput v1="string" v1_tag="key" v2="ColorHEX" v2_tag="value" v3="string" v3_tag="comment"
+; dataInput是一个对象命令(ObjectCommand),用于批量生成数据
+; v1表示第一个变量类型 v1_tag表示变量的别名，依次类推。
+; 这个的数据输入结构为 key(string),value(ColorHEX),comment(string)
+[group name="Highlight"]
+; group是一个全局命令，会给对象属性加上group，可以方便对象访问
+string #b9e88d 字符串
+expression #d69d73 单引号表达式
+scene #c792ea 场景与属性
+comment #546e7a 注释
+command #ffbf51 命令
+objectCommand #f07178 对象命令
+symbol #89ddff 符号与普通文本
+number #d3856c 数字 
+[group close]
+[group name="Editor"]
+background #263238 背景
+inSelectLine #1a2327 选中行
+lineNumber #394c60 行号
+inSelectLineNumber #6c8692 选中行号
+[group close]
+@clr dataInput

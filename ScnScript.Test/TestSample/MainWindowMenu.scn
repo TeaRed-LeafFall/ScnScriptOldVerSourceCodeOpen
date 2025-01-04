@@ -1,0 +1,90 @@
+; 这里是程序主菜单
+@Menu name="MainWindowMenu"
+    @MenuItem title="操作"
+        @MenuItem text="返回"
+        @MenuItem type="separate"
+        @MenuItem text="暂停"
+        @MenuItem text="退出"
+    @clr MenuItem
+    ; 进度设置
+    @MenuItem title="进度"
+        @MenuItem text="上一选项"
+        @MenuItem text="日志"
+        @MenuItem type="separate"
+        @MenuItem text="自动播放" type="check"
+        @MenuItem title="自动播放速度" type="choice"
+            @MenuItem text="0.25x"
+            @MenuItem text="0.5x"
+            @MenuItem text="1.0x"
+            @MenuItem text="1.25x"
+            @MenuItem text="1.5x"
+            @MenuItem text="2.0x"
+        @clr MenuItem
+        @MenuItem text="未读跳过" type="check"
+        @MenuItem text="下一句"
+        @MenuItem text="下一选项"
+        @MenuItem type="separate"
+        @MenuItem text="剧情路线图"
+        @MenuItem text="设置目标路线"
+    @clr MenuItem
+    ; 打开界面
+    @MenuItem title="界面"
+        @MenuItem text="SaveData"
+        @MenuItem text="Config"
+        @MenuItem text="WaitMenu"
+        @MenuItem text="MainMenu"
+        @MenuItem text="StoryTree"
+        @MenuItem text="About"
+    @clr MenuItem
+    ; 阅读设置
+    @MenuItem title="阅读"
+        @MenuItem title="TTS设置(跳转设置)"
+        @MenuItem title="TTS启用" type="check"
+        @MenuItem title="翻译工具(仅提供给翻译者)"
+        @MenuItem title="字体..."
+    @clr MenuItem
+    ; 渲染设置
+    @MenuItem title="渲染"
+        @MenuItem title="FPS 限制"
+            @MenuItem text="30"
+            @MenuItem text="60"
+            @MenuItem text="120"
+            @MenuItem type="separate"
+            @MenuItem text="无限制"
+        @clr MenuItem
+        @MenuItem title="全屏" type="check"
+        @MenuItem title="窗口(画布大小)"
+            @MenuItem text="1280*720(HD)"
+            @MenuItem text="1920*1080(FHD)"
+            @MenuItem text="自定义...(跳转设置)"
+        @clr MenuItem
+        @MenuItem text="FPS Display" type="check"
+    @clr MenuItem
+    ; 调试
+    @MenuItem title="调试" ifok="debugMode"
+        @MenuItem title="控制台"
+        @MenuItem type="separate"
+        @MenuItem title="代码编辑器(需要源代码)"
+        @MenuItem title="场景编辑器"
+        @MenuItem title="剧本热编辑工具"
+    @clr MenuItem
+    ; 快捷操作菜单
+    @MenuItem title="快捷"
+        @MenuItem text="最小化(F10)"
+        @MenuItem text="最大化(F11)"
+        @MenuItem text="静音" type="check"
+        @MenuItem text="躲避功能"
+        @MenuItem text="截图"
+        @MenuItem type="separate"
+        @MenuItem text="设置界面"
+    @clr MenuItem
+    ; 帮助菜单
+    @MenuItem title="帮助"
+        @MenuItem text="关于"
+        @MenuItem text="关于 TinySystem"
+        @MenuItem text="官方网站"
+        @MenuItem type="separate"
+        @MenuItem text="评价作品"
+        @MenuItem text="反馈问题"
+    @clr MenuItem
+@clr Menu

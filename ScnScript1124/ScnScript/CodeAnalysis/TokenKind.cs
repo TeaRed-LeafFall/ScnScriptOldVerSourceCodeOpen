@@ -1,0 +1,40 @@
+﻿
+namespace ScnScript.CodeAnalysis;
+
+public enum TokenKind
+{
+     DoubleQuotationMarks = '"',
+     SingleQuotationMarks = '\'',
+     SemiColon = ';',
+     Colon = ':',
+     Whitespace = ' ',
+     At = '@',
+     //Dot = '.',
+     Equal = '=',
+     //Comma = ',',
+     OpenParenthesis = '(',
+     CloseParenthesis = ')',
+     OpenBrace = '{',
+     CloseBrace = '}',
+     OpenBracket = '[',
+     CloseBracket = ']',
+     Add = '+',
+     Minus = '-',
+     Multiply = '*',
+     Divide = '/',
+    // Modulo = '%',
+    // Power = '^',
+     And = '&',
+     Or = '|',
+     Not = '!',
+     Xor = '~',
+     LessThan = '<',
+     GreaterThan = '>',
+     QuestionMark = '?',
+     Escape = '\\',
+     Lf = '\n',
+     Cr = '\r',
+     Tab = '\t',
+     Unknown = 35724,
+     Keyword = 35725
+}

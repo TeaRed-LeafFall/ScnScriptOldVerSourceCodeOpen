@@ -1,0 +1,21 @@
+*init
+; 选中图片
+@photo mode="selected" path="./photo.png"
+
+*start
+; 选择尺寸
+@photo selectSize="(24,24)"
+
+@goto *loop
+
+*loop
+
+;横向移动
+@if selectX <= photo.x
+    @move x=selectX
+    @add selectX=selectSize.x
+@else
+    @set selectX=0
+@endif
+
+@goto *loop

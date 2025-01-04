@@ -1,0 +1,111 @@
+*init
+[scn ver 4]
+[scn doctype "struct"]
+; 注意: struct类型的文档只能输出一个结构体
+; 请使用 [getstruct file="MainWindowMenu"] 访问
+; parent表明此对象具有子对象
+; shell type 是判断类型是否存在
+[scn shell type="Menu"]
+[scn shell type="MenuItem"]
+*main
+; 这里是程序主菜单
+@Menu name="MainWindowMenu"
+; Menu必定有子存档对象所以不需要 parent 关键字
+    @MenuItem text="操作" parent
+        @MenuItem text="返回"
+        @MenuItem type="separator"
+        @MenuItem text="暂停"
+        @MenuItem text="退出"
+    @clr
+    ; 进度设置
+    @MenuItem text="进度" parent
+        @MenuItem text="上一选项"
+        @MenuItem text="日志"
+        @MenuItem type="separator"
+        @MenuItem text="自动播放" type="check"
+        @MenuItem text="自动播放速度" type="choice" parent
+            @MenuItem text="0.25x"
+            @MenuItem text="0.5x"
+            @MenuItem text="1.0x"
+            @MenuItem text="1.25x"
+            @MenuItem text="1.5x"
+            @MenuItem text="2.0x"
+            @MenuItem type="separator"
+            @MenuItem text="自定义(跳转设置)"
+        @clr
+        @MenuItem text="未读跳过" type="check"
+        @MenuItem text="下一句"
+        @MenuItem text="下一选项"
+        @MenuItem type="separator"
+        @MenuItem text="剧情路线图"
+        @MenuItem text="设置目标路线"
+    @clr
+    ; 打开界面
+    @MenuItem text="界面" parent
+        @MenuItem text="SaveData"
+        @MenuItem text="Config"
+        @MenuItem text="WaitMenu"
+        @MenuItem text="MainMenu"
+        @MenuItem text="StoryTree"
+        @MenuItem text="About"
+    @clr
+    ; 阅读设置
+    @MenuItem text="阅读" parent
+        @MenuItem text="TTS设置(跳转设置)"
+        @MenuItem text="TTS启用" type="check"
+        @MenuItem text="翻译工具(仅提供给翻译者)"
+        @MenuItem text="字体..."
+        @MenuItem text="阅读模式" ifok='readingMode' parent
+            @MenuItem text="TinySystem 模式"
+            @MenuItem text="剧场模式"
+            @MenuItem text="Visual Novel 模式"
+            @MenuItem text="漫画模式(需要剧本支持)"
+            @MenuItem text="纯文字模式"
+        @clr
+    @clr
+    ; 渲染设置
+    @MenuItem text="渲染" parent
+        @MenuItem text="FPS 限制" parent
+            @MenuItem text="30"
+            @MenuItem text="60"
+            @MenuItem text="120"
+            @MenuItem type="separator"
+            @MenuItem text="无限制"
+        @clr
+        @MenuItem text="全屏" type="check"
+        @MenuItem text="窗口(画布大小)" parent
+            @MenuItem text="1280*720(HD)"
+            @MenuItem text="1920*1080(FHD)"
+            @MenuItem text="自定义(跳转设置)"
+        @clr
+        @MenuItem text="FPS Display" type="check"
+    @clr
+    ; 调试
+    @MenuItem text="调试" ifok='debugMode' parent
+        @MenuItem text="控制台"
+        @MenuItem type="separator"
+        @MenuItem text="代码编辑器(需要源代码)"
+        @MenuItem text="场景编辑器"
+        @MenuItem text="剧本热编辑工具"
+    @clr
+    ; 快捷操作菜单
+    @MenuItem text="快捷" parent
+        @MenuItem text="最小化(F10)"
+        @MenuItem text="最大化(F11)"
+        @MenuItem text="静音" type="check"
+        @MenuItem text="躲避功能"
+        @MenuItem text="截图"
+        @MenuItem type="separator"
+        @MenuItem text="设置界面"
+    @clr
+    ; 帮助菜单
+    @MenuItem text="帮助" parent
+        @MenuItem text="关于 %name%" replace_text='[name,@config/game.name]'
+        @MenuItem text="关于 TinySystem"
+        @MenuItem text="官方网站"
+        @MenuItem type="separator"
+        @MenuItem text="评价作品"
+        @MenuItem text="反馈问题"
+    @clr
+@clr MainWindowMenu
+;[out content]

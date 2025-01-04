@@ -1,0 +1,69 @@
+
+*init
+
+[scn ver 4];只可以在init场景声明
+;;;
+    多行注释示例
+;;;
+
+; 初始化场景中需要的角色对象
+@action getname="公共行为(旁白)" displayname=false
+@me getname="我" displayname=false
+@clr:; test
+
+*main | Start "ScnScript代码解析测试样例场景"
+@call *startup
+*startup; 单行注释
+hello,[c]
+world![w]
+[var a=1]
+@me 'ok'
+Hello,world!
+尝试使用[c]; [c]表示继续输入，默认加入换行，不用再次点击
+换行合并显示; [n]表示换行
+输出即换行[n]
+请按任意键继续[w]
+@action
+尝试不用显示名称的旁白
+
+; choices 是一个特殊对象，不是角色，而是可以互动的选项触发器
+@choices text="请进行选择"
+    @choice text="选择1"
+        @call *cho1
+        ; do something
+    @choice text="选择2"
+        @call *cho2
+@clr choices
+
+*cho1
+@action
+你选择了1
+*cho2
+@action
+你选择了2哦！
+
+[b]粗體[/b]
+[i]斜體[/i]
+[u]底線[/u]
+[url=""]
+[img][/img]
+[quote]引言[/quote]
+[size=24]文字[/size]
+[color=red]紅字[/color]
+[smile]
+@object ;;;test;;; ;test
+@object: "hello,world!"
+"\"a\\b\"\\c" "" "\\"
+'ok'
+字符串与表达式嵌套解析测试
+"'xx'" '"xxx"'
+@i="hello, world!"
+@class->output
+@i 'ok'
+@b+2
+@b-2
+[w]
+[test]
+[w]
+*main | End
+[d]

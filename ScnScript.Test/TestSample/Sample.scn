@@ -1,0 +1,48 @@
+*init
+; 初始化场景中需要的角色对象
+@action getname="公共行为(旁白)" displayname=false
+@me getname="我" displayname=false
+@clr
+
+[sence setname *test="Description"]
+*test | Start
+@goto *start
+
+*start
+; 带有 Start 和 End 的标签会被自动识别为场景
+; 你可以使用sence setname 为场景设置描述
+@me
+Hello,world!
+; [c]表示继续输入，默认加入换行，不用再次点击
+尝试使用[c]
+换行合并显示
+; [n]表示换行，需要再次点击
+输出即换行[n]
+且用点击
+@action
+尝试不用显示名称的旁白
+; choices 是一个特殊对象，不是角色，而是可以互动的选项触发器
+@choices title="请进行选择"
+    @a title="选择1"
+        @goto *cho1
+        ; do something
+    @b title="选择2"
+        @goto *cho2
+    @c title="选择3"
+        @goto *cho3
+@clr choices
+; 注意这个选项是必须选择的，否则无法进入下面的场景节点
+; 当解析器遇到节点时，它会给节点一个入口标签，不会直接进入节点。
+; 如果运行器通过调用来到节点如果识别另一个标签内容视为结束
+; 也就是必须添加跳转代码@goto,如果场景没有必要使用节点还是尽量少写选项好，要不然多分段文件也好。
+*cho1
+@action
+你选择了1
+*cho2
+@action
+你选择了2哦！
+*cho3
+@action
+你选择了3
+*test | End
+

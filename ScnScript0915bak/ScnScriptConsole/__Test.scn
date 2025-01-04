@@ -1,0 +1,40 @@
+*main
+hello,World![c]
+今天怎么样？[n]天空是否还有过去那样晴朗？[n]
+;;;
+ 对象选择器测试
+;;;
+@abc
+@a+4
+;[unsub]
+;[sub]
+[w 1.0]
+@a
+@a-2
+@b+1
+@-b
+@-abc
+@call *test
+获取到的返回值是:[out !!result][n]
+; "输入1运行 *first 的内容"
+[rl cover=int name=number]
+@if 'number=1' and 'scn.ver>4' ; 判断逻辑没有做
+	@call *first
+@clr
+按任意键退出[rl]
+
+*test
+[return "hello,world"]
+
+*init
+[scn ver 4]
+[test]
+
+*first | Start "初见ScnScript"
+为什么叫 “ScnScript”?[n]
+ScnScript，“Scn”表示“场景”(scene)，“Script”当然是“脚本”的意思了。[n]
+这么叫是因为ScnScript在VN/AVG游戏中最主要的就是掌管场景，控制场景里面的角色立绘和对话，背景，音乐什么的。[rl]
+@call *main2
+*main2
+"I'am main2 node"[n]
+*first | End
